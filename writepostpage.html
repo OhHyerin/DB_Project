@@ -1,52 +1,67 @@
 <html>
-  <head>
-    <title>쇼몰이</title>
-    <style type="text/css">
-    @FONT-FACE{
-      font-family:'musical';
-      src:url("DXMusicalL-KSCpc-EUC-H.ttf");
-    }
-    </style>
-  </head>
+<head>
+  <link rel="stylesheet" href="./header.css"/>
+  <link rel="stylesheet" href="./post.css"/>
+  <title>쇼몰이</title>
+  <style type="text/css">
+    p{font-family:'Nanum Brush Script',cursive;}
+  </style>
 
-  <body
-  topmargin="30"
-  leftmargin="300">
-  <font color="BLACK" SIZE="6"><p align="center">SHOW-Mori</p></font>
-  <p align="center"><IMG src="line.jpg" width=1000 height=5></IMG></p>
+</head>
+
+
+  <body>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nanum+Brush+Script&family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+
+
+<!--header part -->
+  <div id="header">
+  <h1 class="title"><a href="./main_page.html">SHOW-MORI </a></h1>
+
+  <span id="search">
+  <button type="button" ><img src="./search.jpg" width="40" height="40" ></button>
+  <input type="text" id="search_text">
+  </span>
+
+  <button type="button" name="post" id="btn_post">공연 게시하기</button>
+
+  <span id="login">
+  <button type="button" class="login_botton">로그인</button>/
+  <button type="button" class="login_botton">회원가입</button>
+  <button type="button" ><img src="./profile.jpg" width="40" height="40"  onclick="location.href='myPage.html'"></button>
+  </span>
+
+  </div>
+
+  <div id="upload">
+  <p align="center"><IMG src="line.jpg" width=1500 height=5></IMG></p>
   <form action="./search.php">제목
     <input type="text" name="title">
   </form>
-  <form action="./search.php">목표금액
+
+  <form action="./search.php">포스터
+  <input type="file" name="fileName">
+  </form>
+
+  <form action="./search.php">목표금액 ￦
     <input type="text" name="goalprice">
   </form>
+
   <form action="./search.php">마감날짜
     <input type="text" name="deadline">
   </form>
+
   <form action="./search.php">시놉시스
-    <input type="text" name="story">
-  </form>
-  <form action="./search.php">캐스트
-    <input type="text" name="cast">
-  </form>
-  <form action="./search.php">공연날짜
-    <input type="text" name="showdate">
-  </form>
-  <p>리워드  </p>
-  <form action="./search.php">￦5,000
-    <input type="text" name="reward1">
-  </form>
-  <form action="./search.php">￦10,000
-    <input type="text" name="reward2">
-  </form>
-  <form action="./search.php">￦15,000
-    <input type="text" name="reward3">
-  </form>
-  <form action="./search.php">￦20,000
-    <input type="text" name="reward4">
+    <input type="file" name="story">
   </form>
 
+  <form action="./search.php">공연날짜<br>
+    Start Date :  <input type="date" name="startdate">
+    End Date :  <input type="date" name="enddate">
 
+  <br clear="left">
+  <input type="submit" value="등록하기">
 
+</div>
     </body>
 </html>

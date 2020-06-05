@@ -14,25 +14,10 @@
   text-align:center;
 }
 
-p1{
+p{
   font-family: 'Nanum Brush Script';
   font-weight:bold;
   font-size : 50px;
-}
-
-p2{
-  font-family: 'Nanum Brush Script';
-  font-size:30px;
-}
-
-p3{
-  font-family: 'Nanum Brush Script';
-  font-size:15px;
-}
-
-p4{
-  font-family: 'Nanum Brush Script';
-  font-size:20px;
 }
 
 .rectangle{
