@@ -1,37 +1,18 @@
 <html>
-<head>
-  <link rel="stylesheet" href="./header.css"/>
-  <link rel="stylesheet" href="./post.css"/>
-  <title>쇼몰이</title>
-  <style type="text/css">
-    p{font-family:'Nanum Brush Script',cursive;}
-  </style>
+<!-- print header -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-</head>
+<script type="text/javascript">
 
+//페이지가 로드되면 실행한다.
+$(document).ready( function() {
 
-  <body>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nanum+Brush+Script&family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  $("#header").load("header.html");
+});
 
+</script>
 
-<!--header part -->
-  <div id="header">
-  <h1 class="title"><a href="./main_page.html">SHOW-MORI </a></h1>
-
-  <span id="search">
-  <button type="button" ><img src="./search.jpg" width="40" height="40" ></button>
-  <input type="text" id="search_text">
-  </span>
-
-  <button type="button" name="post" id="btn_post">공연 게시하기</button>
-
-  <span id="login">
-  <button type="button" class="login_botton">로그인</button>/
-  <button type="button" class="login_botton">회원가입</button>
-  <button type="button" ><img src="./profile.jpg" width="40" height="40"  onclick="location.href='myPage.html'"></button>
-  </span>
-
-  </div>
+<div id="header"></div>
 
   <div id="upload">
   <p align="center"><IMG src="line.jpg" width=1500 height=5></IMG></p>

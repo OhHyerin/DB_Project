@@ -1,54 +1,42 @@
 <html>
 <head>
-  <link rel="stylesheet" href="./header.css"/>
-  <link rel="stylesheet" href="./post.css"/>
-  <title>쇼몰이</title>
-  <style type="text/css">
-    p{font-family:'Nanum Brush Script',cursive;}
-  </style>
+  <!-- print header -->
+  <link rel="stylesheet" type="text/css" href="./login.css">
+  <link rel="stylesheet" type="text/css" href="./post.css">
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
+  <script type="text/javascript">
+
+  //페이지가 로드되면 실행한다.
+  $(document).ready( function() {
+
+    $("#header").load("header.html");
+  });
+
+  </script>
 </head>
 
-  <body>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nanum+Brush+Script&family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+<body>
+  <div id="header"></div>
+  <p><IMG src="line.jpg" width=1300 height=5 /></p>
 
 
-<!--header part -->
-  <div id="header">
-  <h1 class="title"><a href="./main_page.html">SHOW-MORI </a></h1>
+  <div class="showmorilsignup">
 
-  <span id="search">
-  <button type="button" ><img src="./search.jpg" width="40" height="40" ></button>
-  <input type="text" id="search_text">
-  </span>
+    <!-- <form action='./login2.php' name='login_form' method='post'> -->
+      <form method="post" action="member.php">
+      <br>
+      <br>
+      <div class="signup_rectangle">
+      <CENTER>회원가입<br>
+        <label>ID : </label><input type="text" name="user_id" class="box"/><br>
+        <label>PW : </label><input type="text" name="user_password" class="box"/></br>
+        <label>회원이름 : </label><input type="text" name="user_name" class="box"/></br>
+        <label>전화번호 : </label><input type="text" name="user_phone" class="box"/></br>
 
-  <button type="button" name="post" id="btn_post">공연 게시하기</button>
-
-  <span id="login">
-  <button type="button" class="login_botton">로그인</button>/
-  <button type="button" class="login_botton">회원가입</button>
-  <button type="button" ><img src="./profile.jpg" width="40" height="40"  onclick="location.href='myPage.html'"></button>
-  </span>
-  </div>
-
-
-  <div id="showmorilsignup">
-  <p align="center"><IMG src="line.jpg" width=1500 height=5></IMG></p>
-  <form action='./login2.php' name='login_form' method='post'>
-    <br>
-    <br>
-    <div class="rectangle">
-    <CENTER>회원가입<br>
-      <label>ID : </label><input type="text" name="user_id" class="box"/><br>
-      <label>PW : </label><input type="text" name="user_password" class="box"/></br>
-      <label>회원이름 : </label><input type="text" name="user_password" class="box"/></br>
-      <label>전화번호 : </label><input type="text" name="user_password" class="box"/></br>
-
-      <center><input type="button" value="가입" OnClick="newcheckform();"/></br>
-      </div>
-  </div>
-
-
-
-    </body>
+        <!-- <center><input type="button" value="가입" OnClick="newcheckform();"/></br> -->
+        <input type="submit" value="가입하기" />
+        </div>
+    </div>
+</body>
 </html>
