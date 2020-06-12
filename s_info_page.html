@@ -17,39 +17,46 @@
 
 <body>
   <div id="header"></div>
-  <p><IMG src="line.jpg" width=1300 height=5 /></p>
       <!-- <font color="BLACK" SIZE="6"><p align="center">SHOW-Mori</p></font> -->
       <!-- <p align="center"><IMG src="line.jpg" width=1000 height=5></IMG></p> -->
 
-  <section id="postbody">
+  <div id="postbody">
         <div class="title">굿닥터</div>
       <!-- <p style="font-family:musical;">굿닥터</p> -->
 
         <div class="img_post">
-          <img src="./poster2.jpg"/>
+          <img src="./poster2.jpg" width=300 height=450/>
         </div>
 
         <div class="posttext">
-          <p>모인금액   50,000원</p>
-          <p>남은시간   42일</p>
-          <p>후원자   10명</p>
+          <p>모인금액       <span>
+            <?php
+            include './dbconn.php';
+
+            ?>
+          </span>원</p>
+          <p>남은시간       <span>42</span>일</p>
+          <p>후원자        <span>10</span>명</p>
           <p class="rectangle">
-            펀딩 진행중<br>
+            <span>펀딩 진행중</span><br>
             <br>2020년 6월 22일까지 목표금액인 500,000원이 모여야 펀딩이 완성됩니다.<br>
             후원 금액과 리워드는 하단을 참조해 주세요.<br>
           </p>
           <br>
-          <select name="reward">
-            <option value="reward1" selected>￦5,000
-            <option value="reward2">￦10,000
-            <option value="reward3">￦15,000
-            <option value="reward4">￦20,000
+          <select name="reward" class="select_reward">
+            <option value="reward1" selected>￦ 20,000
+            <option value="reward2">￦ 30,000
+            <option value="reward3">￦ 40,000
+            <option value="reward4">￦ 50,000
             </select>
-          <input type="submit" value="후원하기">
+          <input type="submit" value="후원하기" class="submit_button">
         </div>
 
 
-      </section>
+      </div>
+    <div class="img_synop">
+      <img src="./data/IMG/빨래 시놉.jpg" width=600 />
+    </div>
 
 </body>
 
