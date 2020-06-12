@@ -27,29 +27,38 @@
     $memberid=$_POST['user_id'];
     $memberpassword=$_POST['user_password'];
 
-    $sql = "SELECT * FROM user_t WHERE id='$memberid' AND pw='$memberpassword'";
-    $sql = $sql. "values('$id', '$password', '$name', '$position')";
+
+    $sql = "SELECT id,pw FROM user_t WHERE id='$memberid' AND pw='$memberpassword'";
     $res = $conn->query($sql);
 
       $row = $res->fetch_array(MYSQLI_ASSOC);
 
-      if($row != null){
-        $_SESSION['ses_username'] = $row['user_name'];
+      if($row){
+
+         $_SESSION['ses_username'] = $row['id'];
         echo $_SESSION['ses_username'].'님 안녕하세요<p/>';
         echo '<a href="./loginpage.php">로그아웃하기</a>';
       }
 
-      if($row == null){
-        echo("<script>location.href='./loginerror.php';</script>");
+      else{
+        echo '<html>
+
+        <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+        <body>';?>
+
+        <?php
+        echo'로그인 실패입니다'; //로그인실패
+        echo '<a href="./loginpage.php">로그인화면으로가기</a>';
+        ?>
+
+        <?
+        echo '
+        </body>
+        </html>
+        ';
       }
     ?>
-    <!-- <form action='./login_form.php' name='login_form' method='post'>
-      <CENTER>로그인</div>
-        <label>아이디 : </label><input type="text" name="user_id" class="box"/><br>
-        <label>비밀번호 : </label><input type="text" name="user_password" class="box"/></br>
 
-        <center><input type="button" value="로그인" /><br>
-        </form> -->
 
 </body>
 </html>
