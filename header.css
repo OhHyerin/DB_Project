@@ -31,7 +31,7 @@ h1.title{
 	width:500px;
 	height:37px;
 }
-#login{
+.login{
 	position:absolute;
 	right:3%;
 	top: 230px;

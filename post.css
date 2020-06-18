@@ -98,3 +98,5 @@ span{
   width:150px;
   height:35px;
 }
+
+.clear { clear:both; }
