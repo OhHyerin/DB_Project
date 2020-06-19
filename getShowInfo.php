@@ -1,5 +1,8 @@
 <?
+        session_start();
         include './dbconn.php';
+
+        $userid=$_SESSION['userid'];
 
         $title = $_GET['title'];
         $fileSynop = $_GET['fileSynop'];
@@ -75,9 +78,13 @@
         }
 
         //insert data into POST_T from wrtiepostpage.html
-        $q_inPost = "INSERT INTO POST_T(U_PRM, S_POSTER,S_SYNOP,S_TITLE,S_DEADLINE,START_DAY,LAST_DAY,S_GOALSUM ) VALUES(1,'".$filePoster."','".$fileSynop."','".$title."','".$deadLine."','".$startDate."','".$lastDate."','".$goalSum."'); ";
-            $r_insert = mysqli_query($conn,$q_inPost);
+        $q_chkUprm = "SELECT u_prm from user_t where id='".$userid."';";
+          $r_chkUprm = mysqli_query($conn,$q_chkUprm);
+          $row_chkUprm = mysqli_fetch_array($r_chkUprm);
 
+          //insert data into POST_T from wrtiepostpage.html
+          $q_inPost = "INSERT INTO POST_T(U_PRM, S_POSTER,S_SYNOP,S_TITLE,S_DEADLINE,START_DAY,LAST_DAY,S_GOALSUM ) VALUES('".$row_chkUprm['u_prm']."','".$filePoster."','".$fileSynop."','".$title."','".$deadLine."','".$startDate."','".$lastDate."','".$goalSum."'); ";
+              $r_insert = mysqli_query($conn,$q_inPost);
         //새로 넣은 글의 정보 select
         $q_selS_prm = "SELECT S_PRM,START_DAY,LAST_DAY FROM POST_T WHERE S_TITLE='".$title."'";
         $r_selS_prm = mysqli_query($conn,$q_selS_prm);
@@ -146,7 +153,7 @@
         <div id="header"></div>
         <p >
             <span >포스트 등록을 성공했습니다!</span>
-            <input type="button" onClick=location.href("s_info_page.html") value="내가 올린 글 보러 가기" id="getShowInfo_btn"></button>
+            <input type="button" onClick=location.href("s_info_page.php") value="내가 올린 글 보러 가기" id="getShowInfo_btn"></button>
         </p>
         </body>
         </html>';

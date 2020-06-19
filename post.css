@@ -13,6 +13,13 @@
     top:60%
 }
 
+#loginbody{
+  width:50%;
+  height:100%
+  position:absolute;
+  left:40%;
+}
+
 
 .title{
   width:100%;

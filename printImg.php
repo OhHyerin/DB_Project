@@ -1,4 +1,5 @@
 <?
+session_start();
 include './dbconn.php';
 
 
@@ -18,7 +19,7 @@ include './dbconn.php';
 
 
 		$row2 = mysqli_fetch_array($rSumMoney);
-		
+
 
 		$leftSum = ($row['S_GOALSUM']-$row2['sum']);//goalsum - donated sum
 		$leftDate = intval((strtotime($row['S_DEADLINE'])-strtotime($nDate)) / 86400);
@@ -39,8 +40,8 @@ include './dbconn.php';
 				<tr>
 				<form method='POST' action='./s_info_page.php'>
 					<td>
-						<a href='./s_info_page.php'><img src='./data/IMG/".$row['S_POSTER']."'/></a>
-						<a href='./s_info_page.php?title=<?$title?>'><p id='s_title' name='title'>$title</p></a>
+						<a href='./s_info_page.php?snum=".$row['S_PRM']."'><img src='./data/IMG/".$row['S_POSTER']."'></a>
+						<a href='./s_info_page.php'><p id='s_title' name='title'>$title</p></a>
 
 						<p class='t_content'>$leftSum 남음
 							&nbsp;&nbsp;
@@ -59,7 +60,7 @@ include './dbconn.php';
 			echo"
 				<form method='POST' action='./s_info_page.php'>
 					<td>
-						<a href='./s_info_page.php'><img src='./data/IMG/".$row['S_POSTER']."'/></a>
+						<a href='./s_info_page.php?snum=".$row['S_PRM']."'><img src='./data/IMG/".$row['S_POSTER']."'></a>
 						<a href='./s_info_page.php'><p id='s_title' name='print_title'>$title</p></a>
 						<p class='t_content'>$leftSum 남음
 							&nbsp;&nbsp;
@@ -78,7 +79,7 @@ include './dbconn.php';
 			echo"
 				<form method='POST' action='s_info_page.php'>
 					<td>
-						<a href='./s_info_page.php'><img src='./data/IMG/".$row['S_POSTER']."'/></a>
+						<a href='./s_info_page.php?snum=".$row['S_PRM']."'><img src='./data/IMG/".$row['S_POSTER']."'></a>
 						<a href='./s_info_page.php'><p id='s_title' name='print_title'>$title</p></a>
 						<p class='t_content'>$leftSum 남음
 							&nbsp;&nbsp;

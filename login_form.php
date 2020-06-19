@@ -34,6 +34,7 @@ $row = $res->fetch_array(MYSQLI_ASSOC);
   <?php
   if($row){
     $_SESSION['userid'] = $row['id'];
+    $_SESSION['userpass'] = $row['pass'];
     $_SESSION['username'] = $row['name'];
     $_SESSION['userphone'] = $row['phone'];
     echo $_SESSION['userid'].'님 안녕하세요<p/>';

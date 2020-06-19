@@ -26,13 +26,14 @@
       if(!document.member_form.phone){
         alert("휴대폰 번호를 입력하세요");
         document.member_form.phone.focus();
-        return;
+        return false;
       }
       if(document.member_form.pass.value != document.member_form.pass_confirm.value)
       {
           alert("비밀번호가 일치하지 않습니다. \n다시입력해주세요");
           document.member_form.pass.focus();
           document.member_form.pass.select();
+          return false;
       }
       document.member_form.submit()
     }
