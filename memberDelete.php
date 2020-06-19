@@ -17,20 +17,48 @@
       $("#header").load("header.php");
     });
   </script>
+
+  <style>
+ @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&t&family=Nanum+Gothic:wght@800&display=swap");
+ #contents{
+     position: relative;
+     width:600px;
+     height:100px;
+     top: 100px;
+     background-color: #EAEAEA;
+     margin: 0 auto;
+     text-align: center;
+ }
+ #contents span{
+     font-family:"Nanum Brush Script";
+     font-size:30px;
+     padding: 0 10;
+     position: absolute;
+     top: 40%;
+     left:30%;
+ }
+ .getShowInfo_btn{
+     position:relative;
+     top:110%;
+     margin:0 auto;
+     background-color: #F96B6B;
+     border-radius: 12px;
+     font-size:18px;
+     color:white;
+     border: 10px;
+     height: 35px;
+ }
+ #contents a:visited{ color:white; }
+ }
+ </style>
 </head>
 
 <body>
   <div id="header"></div>
-  <div id="wrap_deletemember">
-    <div id="title_deletemember">
-        <div id="passinfo_deletemember">
-          회원 탈퇴 하시겠습니까?
-        </div>
-        <div id="button1_deletemember">
-          <input type="button" value="취소하기" onClick="location.href='http://localhost/DB프로젝트/main_page.html'">
-          <input type="button" value="탈퇴하기" onClick="location.href='http://localhost/DB프로젝트/memberDeleteform.php'">
-        </div>
-    </div> <!-- end of title_deletemember -->
-  </div> <!-- end of wrap_deletemember -->
+  <p id="contents">
+    <span>회원 탈퇴 하시겠습니까?</span>
+    <button class="getShowInfo_btn"><a href="./main_page.html"> 취소하기 </a></button>
+    <button class="getShowInfo_btn"><a href="./memberDeleteform.php"> 탈퇴하기 </a></button>
+  </p> <!-- end of wrap_deletemember -->
 </body>
 </html>

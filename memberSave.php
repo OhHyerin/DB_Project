@@ -12,10 +12,44 @@ $(document).ready( function() {
   $("#header").load("header.php");
 });
 </script>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&t&family=Nanum+Gothic:wght@800&display=swap");
+#contents{
+   position: relative;
+   width:600px;
+   height:100px;
+   top: 30%;
+   background-color: #EAEAEA;
+   margin: 0 auto;
+   text-align: center;
+}
+#contents span{
+   font-family:"Nanum Brush Script";
+   font-size:30px;
+   padding: 0 10;
+   position: absolute;
+   top: 40%;
+   left:30%;
+}
+#getShowInfo_btn{
+   position:relative;
+   top:110%;
+   margin:0 auto;
+   background-color: #F96B6B;
+   border-radius: 12px;
+   font-size:18px;
+   color:white;
+   border: 10px;
+   height: 35px;
+}
+#contents a:visited{ color:white; }
+}
+</style>
 </head>
+
 <body>
   <div id="header"></div>
-  <div id="loginbody">
+  <p id="contents">
 <?php
   include './dbconn.php';
 
@@ -28,15 +62,17 @@ $(document).ready( function() {
   $sql = $sql. "values('$id', '$password', '$name', '$phone')";
 
   if($conn->query($sql)){
-    echo 'success inserting <p/>';
-    echo $name.'님 가입 되셨습니다!.<p/>';
+    ?>
+    <span> <? echo $name ?>님 가입 되셨습니다!.</span>
+    <?
   }else{
     echo 'fail to insert sql';
   }
   mysqli_close($conn);
 
   ?>
-  <input type="button" value="로그인하러가기" onClick="location='loginpage.php'">
+  <button id="getShowInfo_btn"><a href="./loginpage.php"> 로그인하러가기 </a></button>
+
 </div>
 </body>
   </html>

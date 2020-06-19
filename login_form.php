@@ -10,6 +10,8 @@ $sql = "SELECT id,pw FROM user_t WHERE id='$id' AND pw='$pw'";
 $res = $conn->query($sql);
 $row = $res->fetch_array(MYSQLI_ASSOC);
 
+
+
 ?>
 
 <html>
@@ -25,20 +27,55 @@ $row = $res->fetch_array(MYSQLI_ASSOC);
     $("#header").load("header.php");
   });
   </script>
+
+  <style>
+ @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&t&family=Nanum+Gothic:wght@800&display=swap");
+ #contents{
+     position: relative;
+     width:600px;
+     height:100px;
+     top: 30%;
+     background-color: #EAEAEA;
+     margin: 0 auto;
+     text-align: center;
+ }
+ #contents span{
+     font-family:"Nanum Brush Script";
+     font-size:30px;
+     padding: 0 10;
+     position: absolute;
+     top: 40%;
+     left:30%;
+ }
+ #getShowInfo_btn{
+     position:relative;
+     top:110%;
+     margin:0 auto;
+     background-color: #F96B6B;
+     border-radius: 12px;
+     font-size:18px;
+     color:white;
+     border: 10px;
+     height: 35px;
+ }
+ #contents a:visited{ color:white; }
+ }
+ </style>
 </head>
 
 <body>
   <div id="header"></div>
-  <div id="showmorilogin">
-    <div class="alignmiddle">
+  <p id="contents">
   <?php
   if($row){
     $_SESSION['userid'] = $row['id'];
     $_SESSION['userpass'] = $row['pass'];
     $_SESSION['username'] = $row['name'];
     $_SESSION['userphone'] = $row['phone'];
-    echo $_SESSION['userid'].'님 안녕하세요<p/>';
-    header("Location:http://localhost/DB프로젝트/main_page.html");
+    ?>
+    <span> <? echo $_SESSION['userid'] ?>님 안녕하세요.</span>
+    <button id="getShowInfo_btn"><a href="./main_page.html"> 메인 페이지로 가기 </a></button>
+    <?
     exit;
   }
   else{
@@ -51,8 +88,7 @@ $row = $res->fetch_array(MYSQLI_ASSOC);
     }
       ?>
 
-  </div>
-</div>
+  </p>
 
 </body>
 </html>

@@ -17,11 +17,43 @@ session_start();
        $("#header").load("header.php");
      });
    </script>
+   <style>
+  @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&t&family=Nanum+Gothic:wght@800&display=swap");
+  #contents{
+      position: relative;
+      width:600px;
+      height:100px;
+      top: 100px;
+      background-color: #EAEAEA;
+      margin: 0 auto;
+      text-align: center;
+  }
+  #contents span{
+      font-family:"Nanum Brush Script";
+      font-size:30px;
+      padding: 0 10;
+      position: absolute;
+      top: 40%;
+      left:30%;
+  }
+  #getShowInfo_btn{
+      position:relative;
+      top:110%;
+      margin:0 auto;
+      background-color: #F96B6B;
+      border-radius: 12px;
+      font-size:18px;
+      color:white;
+      border: 10px;
+      height: 35px;
+  }
+  #contents a:visited{ color:white; }
+  }
+  </style>
  </head>
 
  <body>
    <div id="header"></div>
-   <div id="deletepro">
    <?php
       $id = $_SESSION['userid'];
 
@@ -43,14 +75,12 @@ session_start();
         $delmem1 .= "DELETE FROM post_t WHERE U_PRM='".$uprm."';";
         $delmem1 .= "DELETE FROM user_t WHERE U_PRM='".$uprm."';";
         $resultdel1 = mysqli_multi_query($conn,$delmem1);
-
-
-          echo '회원탈퇴 완료되었습니다.<p/>';
           session_destroy();
       }
-
     ?>
 
-    <input type="button" value="홈으로" onClick="location='main_page.html'">
-  </div>
+    <p id="contents">
+      <span>회원 탈퇴가 완료되었습니다.</span>
+      <button id="getShowInfo_btn"><a href="./main_page.html"> 메인 페이지로 가기 </a></button>
+    </p>
 </body>
