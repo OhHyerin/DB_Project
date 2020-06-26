@@ -1,3 +1,5 @@
+<!-- 검색기능 처리 -->
+
 <!-- 조건에 맞는 데이터 출력-->
 <!doctype html>
 <html>
@@ -21,7 +23,7 @@ $(document).ready( function() {
 <link rel="stylesheet" href="./main_page.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Do+Hyeon&family=Nanum+Brush+Script&family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
 
-<div id="header"></div>
+<div id="header"></div> 
 <div id="body">
 
 <!-- print posters -->
@@ -61,11 +63,11 @@ $(document).ready( function() {
 				<p class='t_content'>$leftSum 남음
 					&nbsp;&nbsp;
 					$percentage %</a>
-				</p>
+				</p>	
 				<p class='t_content'>마감
 					&nbsp;&nbsp;&nbsp;&nbsp;
 				 	<a>D-$leftDate day</a>
-				 </p>
+				 </p>		
 				</td>
 				";
 				$cnt++;
@@ -77,11 +79,11 @@ $(document).ready( function() {
 				<p class='t_content'>$leftSum 남음
 					&nbsp;&nbsp;
 					$percentage %</a>
-				</p>
+				</p>	
 				<p class='t_content'>마감
 					&nbsp;&nbsp;&nbsp;&nbsp;
 				 	<a>D-$leftDate day</a>
-				 </p>
+				 </p>		
 				</td>
 				</tr>";
 				$cnt++;
@@ -93,11 +95,11 @@ $(document).ready( function() {
 				<p class='t_content'>$leftSum 남음
 					&nbsp;&nbsp;
 					$percentage %</a>
-				</p>
+				</p>	
 				<p class='t_content'>마감
 					&nbsp;&nbsp;&nbsp;&nbsp;
 				 	<a>D-$leftDate day</a>
-				 </p>
+				 </p>		
 				</td>";
 				$cnt++;
 			}
@@ -106,3 +108,6 @@ $(document).ready( function() {
 ?>
 
 </table>
+
+
+

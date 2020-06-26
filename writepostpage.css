@@ -1,3 +1,4 @@
+/*글 게시하기 페이지 참조*/
 body{
     height:2400px;
 }
@@ -74,4 +75,4 @@ td input{
     color:white;
     border-radius: 12px;
     height: 40px;
-}
+}	

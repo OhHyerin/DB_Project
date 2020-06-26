@@ -1,7 +1,5 @@
+/*후원, 펀딩내역 참조*/
 
-body{
-	height:90%;
-	}
 #body{
 	position: relative;
     top:20%;
@@ -33,13 +31,12 @@ table tr,td{
 	position: relative;
     font-size: 21px;
     font-weight: bold;
-    top: 20%;
     left: 15%;
 }
 a{
 	color:#FA6460;
 	text-decoration: none;
-}
+}	
 
 a:hover{
 	font-weight: bold;
@@ -50,4 +47,21 @@ a:hover{
     top: 23%;
 	left: 79.5%;
     font-weight: bold;
+}
+
+.show_title{
+	position: relative;
+    top: 22.5%;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 0 auto;
+    left: 16%;
+    padding-top: 40px;
+}
+
+.btn2{
+    position:relative;
+    display:block;
+    top:120px;
+    left:12%;
 }

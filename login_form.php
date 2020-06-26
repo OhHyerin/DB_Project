@@ -1,3 +1,5 @@
+<!-- 로그인 처리 -->
+
 <?
 session_start();
 include "./dbconn.php";

@@ -1,4 +1,4 @@
-
+/*s_info_page 참조*/
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
 
 #postbody{
@@ -13,19 +13,12 @@
     top:60%
 }
 
-#loginbody{
-  width:50%;
-  height:100%
-  position:absolute;
-  left:40%;
-}
-
 
 .title{
   width:100%;
-	font-family: 'Nanum Brush Script';
-	font-weight :bold;
-	font-size :80px;
+  font-family: 'Nanum Brush Script';
+  font-weight :bold;
+  font-size :80px;
   text-align:center;
 }
 
@@ -60,7 +53,7 @@
   clear:both;
 }
 
-p{
+.p1{
   font-family: 'Nanum Brush Script';
   font-size : 20px;
 }
@@ -70,12 +63,12 @@ p{
   width:400px;
   padding:10px;
   overflow:hidden;
-  test-align:left;
+  text-align:left;
   background:#EAEAEA;
   border:1px solid gray;
 }
 
-span{
+.span1{
   font-family: 'Nanum Brush Script';
   font-size : 30px;
   font-weight: bold;

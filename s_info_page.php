@@ -1,3 +1,5 @@
+<!-- 게시글 상세 내역 -->
+
 <?php
   session_start();
   ?>
@@ -15,6 +17,14 @@
 
     $("#header").load("header.php");
   });
+
+   function chk_reward(){
+
+    var sel = document.getElementById("reward");
+    var s_value= sel.value;
+
+  window.open("check_reward.php?s_value="+s_value,"리워드확인","left=200, top:200, width:20, height:10, scrollbars=no,resizeble=yes");
+ }
 
   </script>
 </head>
@@ -34,6 +44,8 @@
 
 
     while($row = mysqli_fetch_array($s_info)){
+
+      $sprm = $row['S_PRM'];
       $title = $row['S_TITLE'];
       $poster = $row['S_POSTER'];
       $leftDate = intval((strtotime($row['S_DEADLINE'])-strtotime($nDate)) / 86400);
@@ -47,7 +59,7 @@
       $row2 = mysqli_fetch_array($s_info2);
 
         $donatedSum = $row2['sum'];
-        $percentage = round($row2['sum']/$row['S_GOALSUM'],2);
+        $percentage = round($row2['sum']/$row['S_GOALSUM'],2)*100;
       }
 
 
@@ -62,22 +74,26 @@
           "?>
         </div>
         <div class='posttext'>
-          <p>모인금액 <span>	&nbsp; <?=$donatedSum?> 	&nbsp; </span>원</p>
-          <p>남은시간 <span> 	&nbsp; <?=$leftDate?> 	&nbsp; </span>일</p>
-          <p>달성률        <span> 	&nbsp; <?=$percentage?> 	&nbsp; </span>%</p>
+          <p>모인금액 <span>   &nbsp; <?=$donatedSum?>    &nbsp; </span>원</p>
+          <p>남은시간 <span>    &nbsp; <?=$leftDate?>    &nbsp; </span>일</p>
+          <p>달성률        <span>    &nbsp; <?=$percentage?>    &nbsp; </span>%</p>
           <p class='rectangle'>
             <span>펀딩 진행중</span><br>
             <br> <?=$deadLine?> 까지 목표금액인 <?=$goalSum?> 원이 모여야 펀딩이 완성됩니다.<br>
             후원 금액과 리워드는 하단을 참조해 주세요.<br>
           </p>
           <br>
-          <select name='reward' class='select_reward'>
+          <form method="POST" action="donationpage.php" >
+          <input type="hidden" name="sprm" value='<?echo ($sprm);?>'/>
+          <select name='reward' id="reward" class='select_reward'>
             <option value='reward1' selected>￦ 20,000
             <option value='reward2'>￦ 30,000
             <option value='reward3'>￦ 40,000
             <option value='reward4'>￦ 50,000
             </select>
           <input type='submit' value='후원하기' class='submit_button'>
+          <input type="button" value="리워드확인" name="btnReward"  onClick="chk_reward()"class="submit_button">
+          </form>
         </div>
 
 

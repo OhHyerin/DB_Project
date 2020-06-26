@@ -1,3 +1,5 @@
+<!-- 회원탈퇴 처리 -->
+
 <?php
 session_start();
  ?>
@@ -23,7 +25,7 @@ session_start();
       position: relative;
       width:600px;
       height:100px;
-      top: 100px;
+      top: 250px;
       background-color: #EAEAEA;
       margin: 0 auto;
       text-align: center;
@@ -62,18 +64,19 @@ session_start();
       $res1 = mysqli_query($conn, $sql1);
       while($row1 = mysqli_fetch_array($res1)){
 
-        $sql2 = "SELECT * FROM post_t WHERE U_PRM='".$row1['U_PRM']."';";
+        $sql2 = "SELECT * FROM post_t WHERE ID='".$row1['ID']."';";
         $res2 = mysqli_query($conn, $sql2);
         $row2 = mysqli_fetch_array($res2);
 
-        $uprm=$row1['U_PRM'];
+        $uprm=$row1['ID'];
         $sprm=$row2['S_PRM'];
 
 
-        $delmem1 = "DELETE FROM d_info_t WHERE U_PRM='".$uprm."';";
-        $delmem1 .= "DELETE s FROM s_date_t as s JOIN post_t as t ON s.s_prm=t.s_prm WHERE t.u_prm='".$uprm."';";
-        $delmem1 .= "DELETE FROM post_t WHERE U_PRM='".$uprm."';";
-        $delmem1 .= "DELETE FROM user_t WHERE U_PRM='".$uprm."';";
+        $delmem1 = "DELETE FROM d_info_t WHERE ID='".$uprm."';";
+        $delmem1 .= "DELETE D FROM D_INFO_T as D JOIN POST_T as P ON D.S_PRM=P.S_PRM WHERE P.ID =(SELECT ID FROM USER_T WEHRE ID='".$id."');";
+        $delmem1 .= "DELETE S FROM S_DATE_T AS S JOIN POST_T AS T ON S.S_PRM=T.S_PRM WHERE T.ID =(SELECT ID FROM USER_T WHERE ID='".$id."');";
+        $delmem1 .= "DELETE FROM post_t WHERE ID='".$uprm."';";
+        $delmem1 .= "DELETE FROM user_t WHERE ID='".$uprm."';";
         $resultdel1 = mysqli_multi_query($conn,$delmem1);
           session_destroy();
       }

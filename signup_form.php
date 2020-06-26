@@ -1,3 +1,4 @@
+<!-- 회원가입 페이지 -->
 <?php
   session_start();
   ?>
@@ -6,7 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <!-- print header -->
-    <link rel="stylesheet" type="text/css" href="./login.css">
+    <link rel="stylesheet" type="text/css" href="./login.css?after">
     <link rel="stylesheet" type="text/css" href="./post.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
@@ -41,8 +42,11 @@
       else if(document.member_form.pass.value != document.member_form.pass_confirm.value)
       {
           alert("비밀번호가 일치하지 않습니다. \n다시입력해주세요");
+          document.member_form.pass.value="";
+          document.member_form.pass_confirm.value="";
           document.member_form.pass.focus();
           document.member_form.pass.select();
+
       }
       else{
         document.member_form.submit();
@@ -71,7 +75,7 @@
         <br>
         <form name="member_form" method="post" action="memberSave.php">
         <div id="signup_rectangle">
-        <CENTER><p class="login_title">회원가입</p><br>
+        <CENTER><p class="login_title">회원가입</p></CENTER>
             <div id="signup_form"> <!--회원가입 양식 -->
               <div id="join1">  <!-- 회원가입 종목 -->
                 <ul>
@@ -94,10 +98,10 @@
                   </ul>
                 </div> <!--end of join2 -->
                 <div class="clear"></div>
-                <div id="button">
+                <CENTER><div id="button">
                   <button id="button1" onClick="check_input();">가입하기</button>&nbsp;&nbsp;
                   <button id="button2" onClick="reset_form();">다시쓰기</button>
-                </div>
+                </div></DENTER>
               </div> <!-- end of signup_form -->
             </form>
           </div> <!-- end of signup_rectangle" -->

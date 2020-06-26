@@ -1,9 +1,8 @@
-<!-- 포스트 업로드 처리 -->
-<?php
-include "./dbconn.php";
+<!-- 글 게시하기 페이지 화면 및 처리 -->
+<?
 session_start();
+include './dbconn.php';
 ?>
-
 <html>
 <head>
 <!-- print header -->
@@ -16,29 +15,23 @@ session_start();
 
     $("#header").load("header.php");
   });
-
+  
 
   function chkForm(){
-      var title = post_form.title;
+      
       var fileSynop = post_form.fileSynop;
       var filePoster = post_form.filePoster;
       var startDate = post_form.startDate;
       var lastDate = post_form.lastDate;
       var deadLine = post_form.deadLine;
       var goalSum = post_form.goalSum;
+      var v_sprm = post_form.name_sprm;
 
       var dateS = new Date(startDate.value);
       var dateL = new Date(lastDate.value);
       var dateD = new Date(deadLine.value);
 
-
-      //공백체크
-      if(!title.value || !fileSynop.value || !filePoster.value ||!startDate.value  ||!lastDate.value || !deadLine.value||!goalSum.value){
-        alert("정보를 모두 입력해주세요. ");
-        return;
-      }
-
-
+      
         if(goalSum.value<50000){
           alert("목표금액은 최소 50,000입니다.");
           document.post_form.goalSum.focus();
@@ -54,79 +47,41 @@ session_start();
           document.post_form.deadline.focus();
           return;
         }
-
-
-
-        window.location.href='/getShowInfo.php?title='+title.value+'&fileSynop='+fileSynop.files[0].name+'&filePoster='+filePoster.files[0].name+'&startDate='+startDate.value+'&lastDate='+lastDate.value+'&deadLine='+deadLine.value+'&goalSum='+goalSum.value;
-
-
-
+        
+        window.location.href='/editCon_fund_final.php?fileSynop='+fileSynop.files[0].name+'&filePoster='+filePoster.files[0].name+'&startDate='+startDate.value+'&lastDate='+lastDate.value+'&deadLine='+deadLine.value+'&goalSum='+goalSum.value+'&sprm='+v_sprm.value;
+      return;
+    
   }
   </script>
 </head>
-<body>
-<?php
-  if(!$_SESSION['userid']) {
-    echo'
-      <style>
-        @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&t&family=Nanum+Gothic:wght@800&display=swap");
-        #contents{
-            position: relative;
-            width:600px;
-            height:100px;
-            top: 15%;
-            background-color: #EAEAEA;
-            margin: 0 auto;
-            text-align: center;
-        }
-        #contents span{
-            font-family:"Nanum Brush Script";
-            font-size:30px;
-            padding: 0 10;
-            position: absolute;
-            top: 40%;
-            left:30%;
-        }
-        #getShowInfo_btn{
-            position:relative;
-            top:110%;
-            margin:0 auto;
-            background-color: #F96B6B;
-            border-radius: 12px;
-            font-size:18px;
-            color:white;
-            border: 10px;
-            height: 35px;
-        }
-        #contents a:visited{ color:white; }
-        </style>
 
-      <div id="header"></div>
-          <p id="contents">
-            <span >로그인이 필요한 기능입니다.</span>
-            <button id="getShowInfo_btn"><a href="./loginpage.php"> 로그인 하러 가기</a></button>
-        </p>
+<?
+  
+  $sprm = $_GET['sprm'];
+  $uprm = $_GET['uprm'];
 
-    ';
-    return;
-  }
-?>
+  $q_getT = "SELECT S_TITLE FROM POST_T WHERE S_PRM='".$sprm."';";
+  $r_getT = mysqli_query($conn,$q_getT);
+  $row_getT = mysqli_fetch_array($r_getT);
 
 
-<div id="header"></div>
 
-  <h3>POST NEW PROJECT</h3>
+echo'
+<div id="header"></div> 
+  
+  <h3>포스트 수정하기</h3>
   <div id="post">
 
-<form name="post_form" method="GET">
+<form name="post_form" method="GET" >
     <div id="showInfo">
-
+    
+   
       <p class="title">SHOW informatioin</p>
       <hr style="border-top: 1px solid #D9D9D9;" />
         <table>
           <tr>
             <td class="row1">타이틀</td>
-            <td ><label><input type="text" name="title" class="inputText" style="width: 80%;"></label></td>
+            <td ><labe>"'.$row_getT['S_TITLE'].'"</label></td>   
           </tr>
           <tr>
             <td class="row1">시놉시스</td>
@@ -161,17 +116,21 @@ session_start();
             <td class="row1">목표금액</td>
             <td><input type="number" name="goalSum" ></td>
           </tr>
-
+     
           </table>
 
      </div>
       <div id="extra">
         <p class="title"> extra <hr style="border-top: 1px solid #D9D9D9;"> <input type="text"> </p>
       </div>
-
+    
     </div>
-    <input type="button" id="post_btn" value="POST" onClick='chkForm()'/>
+    <input type="hidden" name="name_sprm" value="'.$sprm.'"/>
+    <input type="button" id="post_btn" value="POST" onClick="chkForm()"/>
   </form>
 
 </body>
-</html>
+</html>';
+
+mysqli_close($conn);
+?>
